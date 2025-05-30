@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성형 AI 장단점 및 보완 방안 보고서 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #F4F7F9; /* Page Background */
+            color: #263238; /* Dark Text */
+        }
+        .chart-container {
+            position: relative; /* Required for Chart.js responsiveness */
+            margin: auto;
+            /* height: 320px; /* Adjusted height for better mobile view */
+            /* width: 100%; */ 
+        }
+
+        /* Custom colors for Tailwind */
+        .bg-primary-blue { background-color: #2A62B6; }
+        .text-primary-blue { color: #2A62B6; }
+        .border-primary-blue { border-color: #2A62B6; }
+
+        .bg-secondary-teal { background-color: #4ECDC4; }
+        .text-secondary-teal { color: #4ECDC4; }
+
+        .bg-accent-grey { background-color: #A9A9A9; }
+        .text-accent-grey { color: #A9A9A9; }
+
+        .bg-supporting-light-blue { background-color: #E0F2FE; }
+        .text-supporting-light-blue { color: #E0F2FE; }
+        
+        .report-title {
+            font-size: 28px; /* 28pt from report spec, approx */
+            font-weight: 900; /* 매우 굵게 */
+            color: #2A62B6; /* Primary Blue */
+        }
+        .level1-title {
+            font-size: 18px; /* 18pt */
+            font-weight: 700; /* 아주 굵게 */
+            color: #2A62B6; /* Primary Blue */
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 2px solid #4ECDC4; /* Secondary Teal */
+            padding-bottom: 0.25rem;
+        }
+        .level2-title {
+            font-size: 14px; /* 14pt */
+            font-weight: 600; /* 굵게 */
+            color: #263238; /* Dark Text */
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .card {
+            background-color: #FFFFFF; /* Light Background for cards */
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+            padding: 1.5rem; /* p-6 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        .tooltip-custom {
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 12px;
+        }
+        /* Responsive chart height */
+        .h-chart-sm { height: 300px; }
+        .md\:h-chart-md { height: 350px; }
+        .lg\:h-chart-lg { height: 400px; }
+
+        /* Ensure list bullets are visible and styled */
+        .custom-list li {
+            position: relative;
+            padding-left: 1.5em; /* Space for the bullet */
+            margin-bottom: 0.5em;
+        }
+        .custom-list li::before {
+            content: '•'; /* Bullet character */
+            position: absolute;
+            left: 0;
+            color: #4ECDC4; /* Secondary Teal for bullets */
+            font-weight: bold;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-8">
+            <h1 class="report-title mb-2">생성형 AI의 장단점은 무엇이며, 단점을 어떻게 보완할 수 있을까?</h1>
+            <p class="text-lg text-gray-700 mb-1">미림마이스터고등학교 뉴 미디어 소프트웨어과 1-1반 학생들의 생성형 AI 사용 실태 보고서</p>
+            <div class="text-sm text-gray-600">
+                <p>1학년 1반 2조</p>
+                <p>김서연, 김세주, 박경은, 조재현, 조현재</p>
+                <p>작성일: 2025년 5월 26일</p>
+            </div>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2 class="level1-title">1. 조사 동기와 목적</h2>
+                <p class="text-sm leading-relaxed">생성형 인공지능(AI)은 현대 사회의 다양한 분야에서 혁신적인 변화를 이끌고 있으며, 학생들의 학습 환경에도 큰 영향을 미치고 있다. 일상에서 생성형 AI를 활용하는 과정에서 그 장점을 충분히 활용하지 못하거나, 단점을 명확히 인지하지 못하여 불편함을 경험하는 사례가 관찰되었다. 이에 본 조사는 학생들이 실제로 경험하는 생성형 AI 사용의 장점과 단점을 구체적으로 파악하고, 발견된 단점을 효과적으로 보완할 수 있는 방안을 모색하는 것을 목적으로 한다.</p>
+            </section>
+
+            <section class="card">
+                <h2 class="level1-title">2. 조사 계획</h2>
+                <div class="space-y-3 text-sm">
+                    <p><strong class="text-primary-blue">가. 조사 기간:</strong> 본 조사는 2024년 5월 13일부터 5월 26일까지 진행했다.</p>
+                    <p><strong class="text-primary-blue">나. 조사 대상:</strong> 본 조사는 미림마이스터고등학교 뉴미디어소프트웨어과 1학년 1반 학생 19명 전원을 대상으로 실시했다.</p>
+                    <p><strong class="text-primary-blue">다. 조사 내용:</strong> 본 조사는 생성형 AI 사용 빈도, 활용 목적, 장점과 단점에 대한 인식, 단점 보완 방안에 대한 의견을 수집하기 위해 설문조사와 심층 인터뷰를 병행했다.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="level1-title text-center mb-6">3. 조사 결과</h2>
+                
+                <article class="card">
+                    <h3 class="level2-title mb-4 text-center">가. 설문조사 결과</h3>
+                    <p class="text-center text-sm text-gray-600 mb-6">뉴미디어소프트웨어과 1학년 1반 학생 19명을 대상으로 실시한 설문조사 주요 결과이다.</p>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                        <div class="col-span-1 lg:col-span-1 p-4 border rounded-lg bg-white shadow">
+                            <h4 class="text-center font-semibold mb-2 text-sm">AI 사용으로 인한 자기 주도 학습 노력 변화</h4>
+                            <div class="chart-container h-chart-sm md:h-chart-md">
+                                <canvas id="surveyChart1"></canvas>
+                            </div>
+                            <p class="text-xs text-center mt-2 text-gray-600">"생성형 AI 사용으로 스스로 생각하거나 문제를 해결하려는 노력이 줄어든다고 생각하십니까?"라는 질문에 대한 응답. '그렇다'와 '매우 그렇다' 응답의 합은 73.7%에 달한다.</p>
+                        </div>
+                        <div class="col-span-1 lg:col-span-1 p-4 border rounded-lg bg-white shadow">
+                            <h4 class="text-center font-semibold mb-2 text-sm">생성형 AI의 학습 도움 정도</h4>
+                             <div class="chart-container h-chart-sm md:h-chart-md">
+                                <canvas id="surveyChart2"></canvas>
+                            </div>
+                            <p class="text-xs text-center mt-2 text-gray-600">"생성형 AI가 학습에 전반적으로 얼마나 도움이 된다고 생각하십니까?"라는 질문에 대한 응답.</p>
+                        </div>
+                        <div class="col-span-1 lg:col-span-1 p-4 border rounded-lg bg-white shadow">
+                            <h4 class="text-center font-semibold mb-2 text-sm">생성형 AI 사용 시 주요 우려 사항</h4>
+                            <div class="chart-container h-chart-sm md:h-chart-md">
+                                <canvas id="surveyChart3"></canvas>
+                            </div>
+                            <p class="text-xs text-center mt-2 text-gray-600">"생성형 AI 사용 시 가장 불편하거나 걱정되는 점은 무엇입니까?"라는 질문에 대한 응답.</p>
+                        </div>
+                        </div>
+                </article>
+
+                <article class="card">
+                    <h3 class="level2-title mb-4 text-center">나. 심층 인터뷰 결과 요약</h3>
+                    <div class="grid md:grid-cols-2 gap-6 text-sm">
+                        <div class="bg-supporting-light-blue p-4 rounded-lg shadow">
+                            <h4 class="font-semibold text-primary-blue mb-1">김진영 학생</h4>
+                            <p>과제 시 챗GPT 사용 경험이 있으며, 어려운 질문에도 잘 답변해주어 도움이 되었다고 언급했다. 다만, 정보의 정확성에 대한 우려로 교차 확인이 필요하다고 말했다. 향후 AI가 정보 출처를 명확히 제시하고 사실 검증 기능이 강화되기를 희망했다.</p>
+                        </div>
+                        <div class="bg-supporting-light-blue p-4 rounded-lg shadow">
+                            <h4 class="font-semibold text-primary-blue mb-1">강태인 학생</h4>
+                            <p>생성형 AI가 거짓 정보를 제공할 수 있으므로 사용자의 비판적 사고와 사실 판단 능력이 중요하다고 강조했다. AI의 부정확한 답변은 보상 체계와 관련될 수 있다고 보았으며, 의심스러운 정보는 직접 인터넷 검색으로 확인한다고 밝혔다.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3 class="level2-title text-center">다. 생성형 AI의 장점과 단점</h3>
+                    <div class="grid md:grid-cols-2 gap-6 text-sm">
+                        <div>
+                            <h4 class="font-semibold text-secondary-teal mb-2">장점</h4>
+                            <ul class="list-disc list-inside space-y-1 custom-list">
+                                <li>어려운 질문에 대한 답변 제공</li>
+                                <li>빠른 시간 내 다양한 결과물 생성</li>
+                                <li>과제 수행 및 학습 보조</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-red-500 mb-2">단점</h4>
+                            <ul class="list-disc list-inside space-y-1 custom-list">
+                                <li>스스로 생각하거나 문제를 해결하는 능력 저하 <span class="text-red-600 font-bold">(관련 설문에서 73.7%가 노력 감소 경험)</span></li>
+                                <li>정보의 정확성 및 신뢰성 부족</li>
+                                <li>표절 및 저작권 침해 가능성</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3 class="level2-title text-center">라. 단점을 보완할 수 있는 방법</h3>
+                    <p class="text-sm mb-3">주요 단점으로 지적된 '스스로 생각하거나 문제를 해결하려는 능력 저하'를 보완하기 위한 방법은 다음과 같다.</p>
+                    <ul class="space-y-2 text-sm custom-list">
+                        <li><strong>AI 활용 교육 강화:</strong> AI를 도구로 활용하되, 비판적 사고와 창의적 문제 해결 능력을 동시에 기를 수 있는 교육이 필요하다. 학교 및 기업에서는 AI의 원리와 한계를 이해하고, AI의 결과물을 검토하고 평가하는 능력을 키우는 교육 프로그램을 도입해야 한다.</li>
+                        <li><strong>설명 가능한 AI 중요성 인식:</strong> AI의 결정 과정을 볼 수 있는 설명 가능한 AI 시스템의 중요성을 인지하고, 사용자가 직접 AI의 판단 과정을 이해하고 자신의 판단과 비교할 수 있도록 해야 한다. 이는 사용자의 사고 능력을 유지하고 강화하는 데 도움이 될 것이다.</li>
+                        <li><strong>AI 답변 재검토 습관화:</strong> 생성형 AI의 응답을 그대로 받아들이지 않고, "이 답이 맞는지 다른 관점도 찾아보자", "왜 이렇게 답변했을까?"와 같은 자기 질문을 하며, 출처 확인, 비판적 질문 제기 등을 습관화한다. 그럼으로써 사용자는 AI의 답변을 토대로 더욱 정확한 정보를 얻을 수 있을 것이다.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="card">
+                <h2 class="level1-title">4. 결론</h2>
+                <div class="text-sm space-y-4">
+                    <div>
+                        <h3 class="level2-title">가. 조사 결과 종합 및 주요 발견점</h3>
+                        <p>첫째, 조사 대상 학생 대다수는 생성형 AI를 학습 및 과제 수행에 유용한 도구로 인식하고 적극적으로 활용하고 있다. 이는 학생들이 생성형 AI의 편리성과 정보 접근성을 긍정적으로 평가하고 있음을 보여준다.</p>
+                        <p>둘째, 생성형 AI 사용의 가장 큰 우려 사항으로는 스스로 생각하고 학습하는 능력 저하되는 것과 생성된 정보의 정확성 및 신뢰성 부족이 지적되었다. 특히 많은 학생이 AI가 제공하는 답변의 신뢰성 문제와 이를 검증하는 과정의 어려움에 대해 깊이 우려하고 있는 것으로 나타나고 있다. 이는 AI의 편리함에 대한 의존도 증가와 함께 정보 판별 능력의 중요성이 더욱 강조되어야 함을 보여준다.</p>
+                    </div>
+                    <div>
+                        <h3 class="level2-title">나. 조사를 통해 새롭게 알게 된 점 및 느낀 점</h3>
+                        <p>생성형 AI가 단순한 정보 제공 도구를 넘어서 학습 보조 도구로 활용될 수 있다는 점을 깨달았다. 예를 들어, 복잡한 개념을 쉽게 설명받거나 글쓰기나 요약 활동에 도움 받을 수 있었다. AI를 사용할 때는 단순히 결과만 받아들이기보다는 비판적으로 사고하고 그 결과가 신뢰할 만한지 검토하는 자세가 필요하다는 것도 느꼈다. 이를 통해 AI를 더욱 책임감 있게 활용 할 수 있다는 점에서 인상깊었다.</p>
+                    </div>
+                    <div>
+                        <h3 class="level2-title">다. 제언</h3>
+                        <p>생성형 AI만 믿고 해답을 구하려는 것보단 생성형 AI의 활용도를 정확히 이해하고 비판적으로도 활용할 수 있는 능력을 길러야 한다. 이런 행동을 기르기 위해서는 생성형 AI가 제공하는 정보나 결과물을 분석하고 오류나 편향이 있는지 검토하는 활동을 통해 비판적으로 볼 수 있는 능력을 기를 수 있다. 또한 AI 사용 과정에서 발생할 수 있는 윤리적 쟁점에 대해 토론함으로써 책임 있는 사용자로서의 태도도 기를 수 있다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2 class="level1-title">5. 참고자료</h2>
+                <ul class="list-disc list-inside text-sm space-y-1 custom-list">
+                    <li><a href="https://www.samsungsds.com/kr/insights/explainable_ai.html?utm_source=chatgpt.com" target="_blank" class="text-primary-blue hover:underline">설명 가능한 AI</a></li>
+                    <li><a href="https://www.itworld.co.kr/article/3992858/%EA%B5%AC%EA%B8%80-%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4%EC%9D%98-%EB%8C%80%EB%8B%A8%ED%95%9C-%EC%86%8D%EC%9E%84%EC%88%98.html" target="_blank" class="text-primary-blue hover:underline">AI의 정확하지 않은 답변 근거</a></li>
+                    <li><a href="https://docs.google.com/forms/d/1IeeMz91s5POEVoaxYiCNvIqoDrzAoG3NDtJMNQ9q68U/edit?hl=ko&pli=1" target="_blank" class="text-primary-blue hover:underline">설문조사 결과 링크</a></li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 py-4 border-t border-accent-grey">
+            <p class="text-xs text-gray-600">&copy; 2025 미림마이스터고 1-1-2조. All rights reserved.</p>
+            <p class="text-xs text-gray-500 mt-1">본 인포그래픽은 제공된 학생 보고서를 기반으로 생성되었습니다.</p>
+        </footer>
+    </div>
+
+    <script>
+        const primaryBlue = '#2A62B6';
+        const secondaryTeal = '#4ECDC4';
+        const accentGrey = '#A9A9A9';
+        const supportingLightBlue = '#E0F2FE';
+        const darkText = '#263238';
+        const chartColors = [primaryBlue, secondaryTeal, '#FFB1C1', '#FFD6A5', '#A9A9A9']; // Added more distinct colors
+
+        // Helper function for wrapping long labels
+        function formatLabel(str, maxLen = 16) {
+            if (typeof str !== 'string') {
+                str = String(str); // Ensure str is a string
+            }
+            const sections = [];
+            let currentLine = "";
+            const words = str.split(/\s+/); // Split by space to try and keep words together
+
+            for (const word of words) {
+                if (currentLine.length + word.length + (currentLine.length > 0 ? 1 : 0) <= maxLen) {
+                    currentLine += (currentLine.length > 0 ? " " : "") + word;
+                } else {
+                    if (currentLine.length > 0) sections.push(currentLine);
+                    currentLine = word;
+                    // If a single word is longer than maxLen, it will be pushed as is, or split it hard
+                    while (currentLine.length > maxLen) {
+                        sections.push(currentLine.substring(0, maxLen));
+                        currentLine = currentLine.substring(maxLen);
+                    }
+                }
+            }
+            if (currentLine.length > 0) sections.push(currentLine);
+            return sections.length > 0 ? sections : [str]; // Return array of strings
+        }
+        
+        // Common Chart.js options
+        const commonChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: { size: 10, family: "'Noto Sans KR', sans-serif" },
+                        padding: 10,
+                         boxWidth: 15,
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    backgroundColor: 'rgba(0,0,0,0.7)',
+                    titleFont: { size: 12, family: "'Noto Sans KR', sans-serif", weight: 'bold' },
+                    bodyFont: { size: 11, family: "'Noto Sans KR', sans-serif" },
+                    padding: 10,
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.y !== null) {
+                                label += context.parsed.y + '명';
+                                const total = context.dataset.data.reduce((acc, val) => acc + val, 0);
+                                if (total > 0) {
+                                    const percentage = ((context.parsed.y / total) * 100).toFixed(1);
+                                    label += ` (${percentage}%)`;
+                                }
+                            }
+                            return label;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        font: { size: 10, family: "'Noto Sans KR', sans-serif" },
+                        callback: function(value) { if (Number.isInteger(value)) { return value + '명'; } }
+                    },
+                    grid: {
+                        color: 'rgba(200, 200, 200, 0.2)',
+                    }
+                },
+                x: {
+                    ticks: {
+                        font: { size: 10, family: "'Noto Sans KR', sans-serif" },
+                        callback: function(value, index, values) {
+                            const originalLabel = this.getLabelForValue(value);
+                            return formatLabel(originalLabel, 10); // Adjust maxLen for x-axis if needed
+                        },
+                        maxRotation: 0, // Prevent label rotation
+                        minRotation: 0
+                    },
+                     grid: {
+                        display: false, // Hide x-axis grid lines for bar charts often
+                    }
+                }
+            }
+        };
+        
+        // Chart 1: AI 사용으로 인한 자기 주도 학습 노력 변화
+        const surveyCtx1 = document.getElementById('surveyChart1').getContext('2d');
+        new Chart(surveyCtx1, {
+            type: 'bar',
+            data: {
+                labels: ['매우 그렇다 (노력 매우 줄어듦)', '그렇다 (노력 줄어듦)', '보통이다', '아니다 (노력 줄지 않음)', '전혀 아니다 (노력 줄지 않음)'],
+                datasets: [{
+                    label: '응답자 수',
+                    data: [5, 9, 3, 0, 2], // 매우그렇다, 그렇다, 보통, 아니다, 전혀아니다
+                    backgroundColor: chartColors,
+                    borderColor: chartColors.map(color => color.replace('0.8', '1')),
+                    borderWidth: 1
+                }]
+            },
+            options: { ...commonChartOptions }
+        });
+
+        // Chart 2: 생성형 AI의 학습 도움 정도
+        const surveyCtx2 = document.getElementById('surveyChart2').getContext('2d');
+        new Chart(surveyCtx2, {
+            type: 'bar',
+            data: {
+                labels: ['매우 그렇다 (매우 도움됨)', '그렇다 (도움됨)', '보통이다', '아니다 (도움 안됨)', '전혀 아니다 (전혀 도움 안됨)'],
+                datasets: [{
+                    label: '응답자 수',
+                    data: [4, 3, 5, 5, 2], // 매우그렇다, 그렇다, 보통, 아니다, 전혀아니다
+                    backgroundColor: chartColors,
+                    borderColor: chartColors.map(color => color.replace('0.8', '1')),
+                    borderWidth: 1
+                }]
+            },
+            options: { ...commonChartOptions }
+        });
+        
+        // Chart 3: 생성형 AI 사용 시 주요 우려 사항
+        const surveyCtx3 = document.getElementById('surveyChart3').getContext('2d');
+        new Chart(surveyCtx3, {
+            type: 'pie',
+            data: {
+                labels: [
+                    '정보 정확성/신뢰성 부족', 
+                    '표절/저작권 문제', 
+                    '학습 능력 저하', 
+                    '개인정보 유출 불안', 
+                    // '불편/걱정 없음' // 0명이라 제외 가능 또는 포함
+                ],
+                datasets: [{
+                    label: '응답자 수',
+                    data: [6, 3, 8, 2], // 0인 데이터는 파이차트에서 시각적으로 의미 없을 수 있어 제외. 만약 포함하려면 [6,3,8,2,0]
+                    backgroundColor: chartColors,
+                    borderColor: '#FFFFFF',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                ...commonChartOptions,
+                scales: { // Pie charts don't have scales by default, remove if not needed or adjust
+                    y: { display: false },
+                    x: { display: false }
+                },
+                plugins: {
+                    ...commonChartOptions.plugins,
+                     legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { size: 10, family: "'Noto Sans KR', sans-serif" },
+                            padding: 8,
+                            boxWidth: 12,
+                            usePointStyle: true, // Use point style for pie chart legend
+                            pointStyle: 'circle',
+                            callback: function(chart, item) { // Custom legend label for pie
+                                const label = chart.data.labels[item.index];
+                                const value = chart.data.datasets[0].data[item.index];
+                                const total = chart.data.datasets[0].data.reduce((acc, val) => acc + val, 0);
+                                const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
+                                return `${label}: ${value}명 (${percentage}%)`;
+                            }
+                        }
+                    },
+                    tooltip: { // Custom tooltip for pie chart
+                        ...commonChartOptions.plugins.tooltip,
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                const value = context.parsed;
+                                if (value !== null) {
+                                    label += value + '명';
+                                    const total = context.dataset.data.reduce((acc, val) => acc + val, 0);
+                                    if (total > 0) {
+                                        const percentage = ((value / total) * 100).toFixed(1);
+                                        label += ` (${percentage}%)`;
+                                    }
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+    </body>
+</html>
